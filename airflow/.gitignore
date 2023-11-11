@@ -1,0 +1,8 @@
+*
+!.gitignore
+!dags/
+!airflow.cfg
+!webserver_config.py
+!logs/
+!airflow-webserver.pid
+!airflow.db

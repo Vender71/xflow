@@ -1,0 +1,35 @@
+[2023-11-11T09:23:43.388+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: youtube_comments_score.get_data manual__2023-11-11T09:23:41.305072+00:00 [queued]>
+[2023-11-11T09:23:43.393+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: youtube_comments_score.get_data manual__2023-11-11T09:23:41.305072+00:00 [queued]>
+[2023-11-11T09:23:43.393+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-11-11T09:23:43.409+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): get_data> on 2023-11-11 09:23:41.305072+00:00
+[2023-11-11T09:23:43.410+0000] {standard_task_runner.py:57} INFO - Started process 18518 to run task
+[2023-11-11T09:23:43.412+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'youtube_comments_score', 'get_data', 'manual__2023-11-11T09:23:41.305072+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/youtube_comments_score.py', '--cfg-path', '/tmp/tmp57hq2ga9']
+[2023-11-11T09:23:43.412+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask get_data
+[2023-11-11T09:23:43.441+0000] {task_command.py:416} INFO - Running <TaskInstance: youtube_comments_score.get_data manual__2023-11-11T09:23:41.305072+00:00 [running]> on host xflow
+[2023-11-11T09:23:43.482+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='youtube_comments_score' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2023-11-11T09:23:41.305072+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-11T09:23:41.305072+00:00'
+[2023-11-11T09:23:43.483+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-11-11T09:23:43.483+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /home/flow/project/scripts/get_data.py']
+[2023-11-11T09:23:43.486+0000] {subprocess.py:86} INFO - Output:
+[2023-11-11T09:23:44.434+0000] {subprocess.py:93} INFO - /home/flow/project/venv/lib/python3.10/site-packages/pydantic/_internal/_fields.py:128: UserWarning: Field "model_server_url" has conflict with protected namespace "model_".
+[2023-11-11T09:23:44.434+0000] {subprocess.py:93} INFO - 
+[2023-11-11T09:23:44.434+0000] {subprocess.py:93} INFO - You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ()`.
+[2023-11-11T09:23:44.434+0000] {subprocess.py:93} INFO -   warnings.warn(
+[2023-11-11T09:23:44.447+0000] {subprocess.py:93} INFO - /home/flow/project/venv/lib/python3.10/site-packages/pydantic/_internal/_config.py:317: UserWarning: Valid config keys have changed in V2:
+[2023-11-11T09:23:44.447+0000] {subprocess.py:93} INFO - * 'schema_extra' has been renamed to 'json_schema_extra'
+[2023-11-11T09:23:44.447+0000] {subprocess.py:93} INFO -   warnings.warn(message, UserWarning)
+[2023-11-11T09:23:44.815+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2023-11-11T09:23:44.815+0000] {subprocess.py:93} INFO -   File "/home/flow/project/scripts/get_data.py", line 15, in <module>
+[2023-11-11T09:23:44.815+0000] {subprocess.py:93} INFO -     api = Api(api_key=key)
+[2023-11-11T09:23:44.815+0000] {subprocess.py:93} INFO -   File "/home/flow/project/venv/lib/python3.10/site-packages/pyyoutube/api.py", line 147, in __init__
+[2023-11-11T09:23:44.815+0000] {subprocess.py:93} INFO -     raise PyYouTubeException(
+[2023-11-11T09:23:44.815+0000] {subprocess.py:93} INFO - pyyoutube.error.PyYouTubeException: PyYouTubeException(status_code=10001,message=Must specify either client key info or api key.)
+[2023-11-11T09:23:45.013+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-11-11T09:23:45.018+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/flow/project/venv/lib/python3.10/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-11-11T09:23:45.020+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=youtube_comments_score, task_id=get_data, execution_date=20231111T092341, start_date=20231111T092343, end_date=20231111T092345
+[2023-11-11T09:23:45.034+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3 for task get_data (Bash command failed. The command returned a non-zero exit code 1.; 18518)
+[2023-11-11T09:23:45.072+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-11T09:23:45.088+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
